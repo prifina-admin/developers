@@ -19,15 +19,6 @@ var addUser = function(user) {
   };
   console.log(user);
   return dynamoInstance.putObject(user);
-
-  // , (err, data) => {
-  //   if (err) {
-  //     console.log("Unable to add the user, Error:", err);
-  //   }
-  //   if (data) {
-  //     console.log("Successful, User added ");
-  //   }
-  // });
 };
 
 module.exports = {
