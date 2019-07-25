@@ -13,17 +13,11 @@ var addDocument = async function(docName, document, userId, name) {
       .getUser(userId, name)
       .then(user => {
         if (user && user.hasOwnProperty("Item")) {
-          s3bucketOperations
-            .fileUpload(data)
-            .then(response => {
+          s3bucketOperations.fileUpload(data).then(response => {
               console.log("Successful, document uploaded", response);
               if (user.Item.hasOwnProperty("unOrganisedDocuments")) {
                 user.Item["unOrganisedDocuments"].push({
-                  [docName]:
-                    "https://" +
-                    data["Bucket"] +
-                    ".s3.amazonaws.com/" +
-                    [docName]
+                  [docName]:"https://" + data["Bucket"] + ".s3.amazonaws.com/" + [docName]
                 });
                 userOperations.addUser(user);
                 resolve({
@@ -34,11 +28,7 @@ var addDocument = async function(docName, document, userId, name) {
               } else {
                 user.Item["unOrganisedDocuments"] = [
                   {
-                    [docName]:
-                      "https://" +
-                      data["Bucket"] +
-                      ".s3.amazonaws.com/" +
-                      [docName]
+                    [docName]: "https://" + data["Bucket"] + ".s3.amazonaws.com/" + [docName]
                   }
                 ];
                 userOperations.addUser(user);
