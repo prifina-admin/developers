@@ -92,10 +92,10 @@ const event = {
 
 describe("Service user document send by services", () => {
   test("require environment variables", async () => {
-    const result = handler(event);
-    result
+    const result = await handler(event);
+    return result
       .then(data => {
-        expect(data).toBeDefined();
+        expect(data).toBe("some");
       })
       .catch(e => {
         expect(e).toBe("Missing required environment variables");

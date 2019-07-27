@@ -1,55 +1,59 @@
-var userOperations = require("../user/user");
-var s3bucketOperations = require("../../dbOperations/s3Bucket");
+const userOperations = require("../user/user");
+const s3bucketOperations = require("../../dbOperations/s3Bucket");
+const UserNotFound = require("../user/UserNotFound");
+const LOGGER = require("../../configurations/logger/logger").getLogger();
 
-var addDocument = async function(docName, document, userId, name) {
-  var data = {
+let addDocument = async function(docName, document, userId, name) {
+  //preparing document for uploading.
+  let data = {
     Bucket: "users-unorganized-files",
     Key: docName,
     Body: document
   };
+  
+  let user;
+  try {
+    user = await userOperations.getUser(userId, name);
+    s3bucketOperations.fileUpload(data);
+    updateDocumentReference(user, data);
+    LOGGER.info(
+      "Sucessful, able to upload the file for user , username:",
+      name
+    );
+    return {
+      message: data.Key + " Succussful, uploaded.",
+      userId: user.Item["Id"],
+      userName: user.Item["name"]
+    };
+  } catch (error) {
+    //How to handle invalid input and internal server errors??
+    LOGGER.info("Failure, unable to upload the file username:", name);
+    throw error;
+  }
+};
 
-  return new Promise(function(resolve, reject) {
-    userOperations
-      .getUser(userId, name)
-      .then(user => {
-        if (user && user.hasOwnProperty("Item")) {
-          s3bucketOperations.fileUpload(data).then(response => {
-              console.log("Successful, document uploaded", response);
-              if (user.Item.hasOwnProperty("unOrganisedDocuments")) {
-                user.Item["unOrganisedDocuments"].push({
-                  [docName]:"https://" + data["Bucket"] + ".s3.amazonaws.com/" + [docName]
-                });
-                userOperations.addUser(user);
-                resolve({
-                  message: docName + " Succussful, uploaded.",
-                  userId: userId,
-                  userName: name
-                });
-              } else {
-                user.Item["unOrganisedDocuments"] = [
-                  {
-                    [docName]: "https://" + data["Bucket"] + ".s3.amazonaws.com/" + [docName]
-                  }
-                ];
-                userOperations.addUser(user);
-                resolve({
-                  message: docName + " Succussful, uploaded.",
-                  userId: userId,
-                  userName: name
-                });
-              }
-            })
-            .catch(error => {
-              reject(error);
-            });
-        } else {
-          reject({ message: "User Doesn't Exist", statusCode: 404 });
-        }
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
+let updateDocumentReference = async function(user, data) {
+  //ensuring that User has unOrganisedDocuments property.
+  if (user.Item.hasOwnProperty("unOrganisedDocuments")) {
+    //adding S3 bucket Object stored reference url to user object
+    user.Item["unOrganisedDocuments"].push({
+      [data.Key]:
+        "https://" + data["Bucket"] + ".s3.amazonaws.com/" + [data.Key]
+    });
+  } else {
+    //adding S3 bucket Object stored reference url to user object
+    user.Item["unOrganisedDocuments"] = [
+      {
+        [data.Key]:
+          "https://" + data["Bucket"] + ".s3.amazonaws.com/" + [data.Key]
+      }
+    ];
+  }
+  userOperations.addUser(user);
+  LOGGER.info(
+    "Sucessful, able to update uploaded file reference to user object, username: {}",
+    user.Item["name"]
+  );
 };
 
 module.exports = {

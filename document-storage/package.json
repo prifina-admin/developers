@@ -3,6 +3,7 @@
     "aws-sdk": "^2.493.0",
     "dotenv": "^8.0.0",
     "lambda-multipart-parser": "0.0.2",
+    "log4js": "^4.5.1",
     "parse-multipart": "^1.0.4",
     "queue-fifo": "^0.2.6",
     "serverless-jest-plugin": "^0.2.1"
@@ -10,6 +11,7 @@
   "devDependencies": {
     "aws-sdk-mock": "^4.5.0",
     "jest": "^24.8.0",
+    "jsdoc": "^3.6.3",
     "serverless": "^1.47.0"
   },
   "scripts": {

@@ -58,7 +58,7 @@ provider:
 
 functions:
   hello:
-    handler: src/handler.upload
+    handler: src/handler.hello
     events:
       - http:
           path: /documents

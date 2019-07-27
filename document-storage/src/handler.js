@@ -1,28 +1,23 @@
 const uploadDocument = require("./services/document/documents");
 const multipartparser = require("lambda-multipart-parser");
+const responseUtil = require("./responseUtil/responseUtil");
 
-module.exports.upload = async event => {
-  var multipartData = await multipartparser.parse(event);
-  var userId = multipartData.userId;
-  var name = multipartData.userName;
-  var docName = multipartData.files[0].filename;
-  var document = multipartData.files[0].content.toString();
+module.exports.hello = async (event, context, callback) => {
+  let multipartData = await multipartparser.parse(event);
+  let userId = multipartData.userId;
+  let name = multipartData.userName;
+  let docName = multipartData.files[0].filename;
+  let document = multipartData.files[0].content.toString();
 
-  return uploadDocument
-    .addDocument(docName, document, userId, name)
-    .then(data => {
-      return {
-        statusCode: 200,
-        body: JSON.stringify(data)
-      };
-    })
-    .catch(ex => {
-      return {
-        statusCode: ex.statusCode,
-        body: JSON.stringify({
-          message: ex.message,
-          statusCode: ex.statusCode
-        })
-      };
-    });
+  try {
+    let response = await uploadDocument.addDocument(
+      docName,
+      document,
+      userId,
+      name
+    );
+    return responseUtil.getSuccessResponse(response);
+  } catch (error) {
+    return responseUtil.getErrorResponse(error);
+  }
 };
