@@ -1,3 +1,4 @@
+//configuring logger
 const LOGGER = require("log4js");
 const LoggerConfigurations = require("../../configurations/logger/logger");
 LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
