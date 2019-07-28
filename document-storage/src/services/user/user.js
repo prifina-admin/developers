@@ -6,7 +6,7 @@ LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
 const dynamoInstance = require("../../dbOperations/dynamoDb");
 const UserNotFoundError = require("./UserNotFoundError");
 
-var getUser = async function(userId, name) {
+let getUser = async function(userId, name) {
   let params = {
     TableName: "User",
     Key: {
@@ -26,7 +26,7 @@ var getUser = async function(userId, name) {
   }
 };
 
-var addUser = function(user) {
+let addUser = function(user) {
   user = {
     TableName: "User",
     Item: user.Item
