@@ -1,6 +1,9 @@
+const LOGGER = require("log4js");
+const LoggerConfigurations = require("../../configurations/logger/logger");
+LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
+
 const dynamoInstance = require("../../dbOperations/dynamoDb");
-const UserNotFound = require("./UserNotFound");
-const LOGGER = require("../../configurations/logger/logger").getLogger();
+const UserNotFoundError = require("./UserNotFoundError");
 
 var getUser = async function(userId, name) {
   let params = {
@@ -15,7 +18,7 @@ var getUser = async function(userId, name) {
   //ensuring user should be present
   if (!(user && user.hasOwnProperty("Item"))) {
     LOGGER.error("Failure, Unable to find the user name:", name);
-    throw new UserNotFound("User doesn't exist", "STDOC0001");
+    throw new UserNotFoundError("User doesn't exist", "STDOC0001");
   } else {
     LOGGER.info("Sucessful, able to get the user name:", name);
     return user;
@@ -27,7 +30,6 @@ var addUser = function(user) {
     TableName: "User",
     Item: user.Item
   };
-  console.log(user);
   return dynamoInstance.putObject(user);
 };
 

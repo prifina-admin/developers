@@ -1,7 +1,9 @@
+const LOGGER = require("log4js");
+const LoggerConfigurations = require("../../configurations/logger/logger");
+LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
+
 const userOperations = require("../user/user");
 const s3bucketOperations = require("../../dbOperations/s3Bucket");
-const UserNotFound = require("../user/UserNotFound");
-const LOGGER = require("../../configurations/logger/logger").getLogger();
 
 let addDocument = async function(docName, document, userId, name) {
   //preparing document for uploading.
@@ -10,7 +12,7 @@ let addDocument = async function(docName, document, userId, name) {
     Key: docName,
     Body: document
   };
-  
+
   let user;
   try {
     user = await userOperations.getUser(userId, name);
