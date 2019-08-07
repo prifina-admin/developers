@@ -1,1 +1,1 @@
-# developers
+# Lambda functions for 3rd parties to access user data

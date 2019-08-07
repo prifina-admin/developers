@@ -1,0 +1,25 @@
+{
+  "name": "data_access_functions_prifina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/faraazahmad/data_access_functions_prifina.git"
+  },
+  "keywords": [],
+  "author": "Syed Faraaz Ahmad <faraaz98@live.com> (https://faraazahmad.github.io)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/faraazahmad/data_access_functions_prifina#readme",
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "serverless": "^1.48.4",
+    "serverless-offline": "^5.8.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.501.0"
+  }
+}
