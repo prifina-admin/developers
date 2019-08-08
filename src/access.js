@@ -1,3 +1,5 @@
+const validate = require('./access/validate');
+
 /**
  * @typedef RequestObject
  * @type {object}
@@ -19,12 +21,9 @@
  * @param {RequestObject[]} categories - An array of different categories of data required.
  * @returns {?error} Either an error or nothing
 */
-module.exports.request = function (service_id, user_id, requests) {
-    const invalid_ids = [null, undefined, ''];
-
-    if (typeof service_id != 'string' || invalid_ids.includes(service_id)) {
-        throw new Error('Invalid service_id');
-    }
+function request(service_id, user_id, requests) {
+    validate.userID(user_id);
+    validate.serviceID(service_id);
 }
 
 /**
@@ -34,6 +33,12 @@ module.exports.request = function (service_id, user_id, requests) {
  * @param {string} requester_id - Registered ID of the service requesting user data
  * @returns {DataObject} An object with error or data.
  */
-module.exports.data = function (user_id, categories) {
+function data(user_id, categories) {
     
 }
+
+// export the functions
+module.exports = {
+    data: data,
+    request: request
+};
