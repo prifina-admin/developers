@@ -14,7 +14,20 @@ function userID(id) {
     }
 }
 
+function category(categoryObject) {
+    // validate the data key in the object
+    if (!categoryObject.data || typeof categoryObject.data != 'number') {
+        throw new Error('Missing or Invalid value in data key.');
+    }
+
+    // validate the reason key in the object
+    if (!categoryObject.reason || typeof categoryObject.reason != 'string') {
+        throw new Error('Missing or invalid value in reason key.');
+    }
+}
+
 module.exports = {
     userID,
-    serviceID
+    serviceID,
+    category
 }

@@ -21,7 +21,7 @@ const validate = require('./access/validate');
  * @param {RequestObject[]} categories - An array of different categories of data required.
  * @returns {?error} Either an error or nothing
 */
-function request(service_id, user_id, requests) {
+function request(service_id, user_id, categories) {
     validate.userID(user_id);
     validate.serviceID(service_id);
 }
