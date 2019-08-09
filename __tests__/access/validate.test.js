@@ -28,8 +28,7 @@ describe('module: \'validate\'', () => {
     });
 
     test("throws error when categories has invalid data field", () => {
-        // Check for invalid data fields
-        const invalidDataError = Error('Missing or invalid value in data field.');
+        const invalidDataError = new Error('Missing or invalid value in data field.');
         const categoriesWithInvalidDataFields = [
             {
                 data: null,
@@ -50,16 +49,34 @@ describe('module: \'validate\'', () => {
         categoriesWithInvalidDataFields.forEach((categoryObject) => {
             expect(() => validate.category(categoryObject)).toThrow(invalidDataError);
         });
-        
-        const invalidReasonError = Error('Missing or invalid value in reason field.');
     });
-
+    
     test("throws error when categories has invalid reason field", () => {
+        const invalidReasonError = new Error('Missing or invalid value in reason field.');
         const categories = [
             {
                 data: 135,
-                reason: "A valid reason for this data"
+                reason: 150
+            }, 
+            {
+                data: 123,
+                reason: "Short, uninformative reason"   // shorter than 50 characters
+            },
+            {
+                data: 561
+            }, 
+            {
+                data: 7,
+                reason: null
+            },
+            {
+                data: 237,
+                reason: undefined
             }
         ];
+
+        categories.forEach((categoryObject) => {
+            expect(() => validate.category(categoryObject)).toThrow(invalidReasonError);
+        });
     });
 });
