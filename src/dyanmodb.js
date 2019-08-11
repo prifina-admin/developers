@@ -1,9 +1,8 @@
 'use strict';
 
-const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
+const AWS = require('aws-sdk');
 
 let options = {};
-
 // connect to local DB if running offline
 if (process.env.IS_OFFLINE) {
     options = {
@@ -11,7 +10,17 @@ if (process.env.IS_OFFLINE) {
         endpoint: 'http://localhost:8000',
     };
 }
+const docClient = new AWS.DynamoDB.DocumentClient(options);
 
-const client = new AWS.DynamoDB.DocumentClient(options);
+const putObject = data => {
+    return docClient.put(data).promise();
+};
 
-module.exports = client;
+const getObject = data => {
+    return docClient.get(data).promise();
+};
+
+module.exports = {
+    putObject: putObject,
+    getObject: getObject
+};

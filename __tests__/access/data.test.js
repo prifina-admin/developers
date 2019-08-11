@@ -2,7 +2,7 @@
 
 const data = require('../../src/access').data;
 
-describe('Utility function \'request\'', () => {
+describe('Utility function \'data\'', () => {
     test('Throws error if service is not registered in the database', () => {
 
     });

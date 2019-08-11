@@ -21,7 +21,8 @@ function category(categoryObject) {
     }
 
     // validate the reason key in the object
-    if (!categoryObject.reason || typeof categoryObject.reason != 'string') {
+    if (!categoryObject.reason || typeof categoryObject.reason != 'string' || 
+      typeof categoryObject.reason === 'string' && categoryObject.reason.length < 50) {
         throw new Error('Missing or invalid value in reason field.');
     }
 }

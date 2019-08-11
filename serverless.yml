@@ -143,3 +143,4 @@ resources: # CloudFormation template syntax
 
 plugins:
   - serverless-offline
+  - serverless-dynamodb-local
