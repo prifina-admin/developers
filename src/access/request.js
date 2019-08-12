@@ -1,4 +1,6 @@
 const validate = require('./validate');
+let AWS = require('aws-sdk');
+
 /**
  * Function for 3rd parties to request access to user data
  * @param {string} requester_id - Registered ID of the service requesting user data
@@ -7,26 +9,18 @@ const validate = require('./validate');
  * @returns {?error} Either an error or nothing
 */
 function request(service_id, user_id, categories) {
+    // run validations and return error
     try {
         validate.userID(user_id);
-    } catch (error) {
-        // return error
-    }
-
-    try {
         validate.serviceID(service_id);
-    } catch(error) {
-        // return error
-    }
-
-    try {
         categories.forEach((categoryObject) => {
             validate.category(categoryObject);
         });
     } catch (error) {
-        // return error
+        return error;
     }
-    
+
+    let db = new AWS.DynamoDB();    
 }
 
 module.exports = request;

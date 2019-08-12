@@ -2,15 +2,12 @@
 
 const AWS = require('aws-sdk');
 
-let options = {};
-// connect to local DB if running offline
-if (process.env.IS_OFFLINE) {
-    options = {
-        region: 'localhost',
-        endpoint: 'http://localhost:8000',
-    };
-}
-const docClient = new AWS.DynamoDB.DocumentClient(options);
+const docClient = new AWS.DynamoDB({
+    region: 'localhost',
+    endpoint: 'http://localhost:8000',
+    accessKeyId: 'DEFAULT_ACCESS_KEY',  // needed if you don't have aws credentials at all in env
+    secretAccessKey: 'DEFAULT_SECRET' // needed if you don't have aws credentials at all in env
+});
 
 const putObject = data => {
     return docClient.put(data).promise();

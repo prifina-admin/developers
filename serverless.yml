@@ -73,22 +73,6 @@ functions:
   accessData:
     handler: src/handler.accessData
 
-resources: # CloudFormation template syntax
-  Resources:
-    usersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: usersTable
-        AttributeDefinitions:
-          - AttributeName: email
-            AttributeType: S
-        KeySchema:
-          - AttributeName: email
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -140,7 +124,3 @@ resources: # CloudFormation template syntax
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
-
-plugins:
-  - serverless-offline
-  - serverless-dynamodb-local

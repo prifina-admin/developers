@@ -16,11 +16,9 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/faraazahmad/data_access_functions_prifina#readme",
   "devDependencies": {
-    "@shelf/jest-dynamodb": "^1.4.0",
+    "aws-sdk-mock": "^4.5.0",
     "jest": "^24.8.0",
-    "jsdoc": "^3.6.3",
-    "serverless-dynamodb-local": "^0.2.38",
-    "serverless-offline": "^5.8.0"
+    "jsdoc": "^3.6.3"
   },
   "dependencies": {
     "serverless": "^1.48.4",
