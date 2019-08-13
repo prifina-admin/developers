@@ -5,7 +5,8 @@ contract DataValidation {
     mapping (address => bool) Addresses;
     uint addressCount;
 
-    mapping (string => bool) Checksums;
+    // Mapping bytes32 "dataHash" to bytes "signature"
+    mapping (bytes32 => bytes) Checksums;
     uint checksumCount;
 
     constructor() public {
@@ -48,18 +49,22 @@ contract DataValidation {
     }
 
     // Add checksum
-    function setChecksum(string memory _checksum) public {
+    function setChecksum(bytes32 dataHash, bytes memory signature) public {
         if(isAuth(msg.sender)) {
-            Checksums[_checksum] = true;
-            checksumCount++;
+            if(Checksums[dataHash].length == 0){
+                Checksums[dataHash] = signature;
+                checksumCount++;
+            } else {
+                revert("dataHash already exists");
+            }
         } else {
             revert("address is not defined");
         }
     }
 
     // Delete checksum (Only Contract Creator)
-    function deleteChecksum(string memory _checksum) public isCreator {
-        Checksums[_checksum] = false;
+    function deleteChecksum(bytes32 dataHash) public isCreator {
+        Checksums[dataHash] = "";
         checksumCount--;
     }
 
@@ -69,8 +74,16 @@ contract DataValidation {
     }
 
     // Is Checksums contains the given checksum
-    function contains(string memory _checksum) public view returns (bool) {
-        return Checksums[_checksum];
+    function contains(bytes32 dataHash) public view returns (bool) {
+        if(Checksums[dataHash].length > 0 ){
+            return true;
+        }
+        return false;
+    }
+
+    // Get the signed dataHash (signature of user)
+    function getSignature(bytes32 dataHash) public view returns (bytes memory) {
+        return Checksums[dataHash];
     }
 
 }
