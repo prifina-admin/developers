@@ -5,9 +5,9 @@ let AWS = require('aws-sdk');
 let AWSMock = require('aws-sdk-mock');
 
 describe('Utility function \'request\'', () => {
-    test('Throws error if service is not registered in the database', () => {
-        AWSMock.setSDKInstance(AWS);
-    });
+    // integration tests for utility function request
+
+    test.todo('Throws error if service is not registered in the database');
 
     test.todo('Throws error if user is not registered in the database');
     
