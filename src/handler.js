@@ -1,27 +1,20 @@
 'use strict';
 
-const db = require('./dyanmodb');
-let { Access } = require('./access');
-let accessObject;
+const request = require('./access/request');
+const responseUtil = require('./responseUtil');
 
 module.exports.requestAccess = async (event, context, callback) => {
-  if (!accessObject) {
-    accessObject = new Access(db);
-  }
+  try {
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(accessObject.requestAccess(), null, 2),
-  };
+  } catch (error) {
+
+  }
 };
 
-module.exports.accessData = async (event) => {
-  if (!accessObject) {
-    accessObject = new Access(db);
-  }
+module.exports.accessData = async (event, context, callback) => {
+  try {
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(accessObject.data(), null, 2),
-  };
+  } catch (error) {
+
+  }
 };
