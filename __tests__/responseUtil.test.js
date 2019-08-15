@@ -6,7 +6,24 @@ const ServiceNotFoundError = require('../src/errors/ServiceNotFoundError');
 describe('Utility module responseUtil', () => {
     describe('child function getSuccessResponse', () => {
         test('gives success object when a non error is passed', () => {
-            // responseUtil.getSuccessResponse()
+            const dataObj = {
+                category: 135,
+                data: [
+                    {
+                        name: "John Doe",
+                        age: 45
+                    },
+                    {
+                        name: "John Appleseed",
+                        age: 23
+                    }
+                ]
+            }
+
+            expect(responseUtil.getSuccessResponse(dataObj)).toEqual({
+                statusCode: 200,
+                body: dataObj
+            });
         });
     });
 
@@ -15,10 +32,10 @@ describe('Utility module responseUtil', () => {
             const error = new ServiceNotFoundError('Service with provided ID not found');
             expect(responseUtil.getErrorResponse(error)).toEqual({
                 statusCode: 404,
-                body: JSON.stringify({
+                body: {
                     message: error.getMessage(),
                     errorCode: 'ENO001'
-                })
+                }
             });
         });
 
@@ -26,10 +43,10 @@ describe('Utility module responseUtil', () => {
             const error = new UserNotFoundError('User with provided ID not found');
             expect(responseUtil.getErrorResponse(error)).toEqual({
                 statusCode: 404,
-                body: JSON.stringify({
+                body: {
                     message: error.getMessage(),
                     errorCode: 'ENO001'
-                })
+                }
             });
         });
 
@@ -37,10 +54,10 @@ describe('Utility module responseUtil', () => {
             const error = new ValidationError('Missing or invalid value in data field.');
             expect(responseUtil.getErrorResponse(error)).toEqual({
                 statusCode: 400,
-                body: JSON.stringify({
+                body: {
                     message: error.getMessage(),
                     errorCode: 'ENO001'
-                })
+                }
             });
         });
     });

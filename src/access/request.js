@@ -11,8 +11,8 @@ let AWS = require('aws-sdk');
 function request(service_id, user_id, categories) {
     // run validations and return error
     try {
-        validate.userID(user_id);
-        validate.serviceID(service_id);
+        validate.registeredID(user_id);
+        validate.registeredID(service_id);
         categories.forEach((categoryObject) => {
             validate.category(categoryObject);
         });

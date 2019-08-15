@@ -3,27 +3,12 @@
 const validate = require('../../src/access/validate');
 
 describe('module: \'validate\'', () => {
-    test("throws error when service_id is invalid", () => {
-        let service_id;
-
+    test("throws error when id is invalid", () => {
         const invalid_ids = [null, undefined, '', 1234];
         const id_error = new Error('Invalid service_id');
 
         invalid_ids.forEach((id) => {
-            service_id = id;
-            expect(() => validate.serviceID(service_id)).toThrow(id_error);
-        });
-    });
-
-    test("throws error when user_id is invalid", () => {
-        let user_id;
-
-        const invalid_ids = [null, undefined, '', 1234];
-        const id_error = new Error('Invalid user_id');
-
-        invalid_ids.forEach((id) => {
-            user_id = id;
-            expect(() => validate.userID(user_id)).toThrow(id_error);
+            expect(() => validate.registeredID(id)).toThrow(id_error);
         });
     });
 
