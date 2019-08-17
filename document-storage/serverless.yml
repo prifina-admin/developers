@@ -12,8 +12,8 @@
 # Happy Coding!
 
 service: document-storage # NOTE: update this with your service name
-app: myapp
-tenant: mahanteshj1996
+# app: myapp
+# tenant: mahanteshj1996
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -22,7 +22,29 @@ tenant: mahanteshj1996
 provider:
   name: aws
   runtime: nodejs10.x
+  profile: default
+  region: us-east-1
+  environment:
+    NODE_PATH: "./:/opt/node_modules"
 
+package:
+  exclude:
+    - lib/**
+
+layers:
+  commonLib:
+    path: lib
+    description: "contains all the required libraries"
+
+functions:
+  upload:
+    handler: src/handler.upload
+    events:
+      - http:
+          path: /documents
+          method: POST
+    layers:
+      - { Ref: CommonLibLambdaLayer }
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -56,13 +78,6 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-functions:
-  hello:
-    handler: src/handler.hello
-    events:
-      - http:
-          path: /documents
-          method: POST
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

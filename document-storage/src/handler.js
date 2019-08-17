@@ -2,7 +2,7 @@ const uploadDocument = require("./services/document/documents");
 const multipartparser = require("lambda-multipart-parser");
 const responseUtil = require("./responseUtil/responseUtil");
 
-module.exports.hello = async (event, context, callback) => {
+module.exports.upload = async (event, context, callback) => {
   let multipartData = await multipartparser.parse(event);
   let userId = multipartData.userId;
   let name = multipartData.userName;
@@ -16,8 +16,8 @@ module.exports.hello = async (event, context, callback) => {
       userId,
       name
     );
-    return responseUtil.getSuccessResponse(response);
+    callback(null, responseUtil.getSuccessResponse(response));
   } catch (error) {
-    return responseUtil.getErrorResponse(error);
+    callback(null, responseUtil.getErrorResponse(error));
   }
 };

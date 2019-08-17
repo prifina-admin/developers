@@ -1,4 +1,4 @@
-var operations = require("../../src/dbOperations/dynamoDb");
+var operations = require("../../dbOperations/dynamoDb");
 
 test("testing get data if User Not present", () => {
   params = {

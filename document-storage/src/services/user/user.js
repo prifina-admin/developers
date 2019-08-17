@@ -1,7 +1,8 @@
 //configuring Logger
-const LOGGER = require("log4js");
+const log4js = require("log4js");
 const LoggerConfigurations = require("../../configurations/logger/logger");
-LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
+log4js.configure(LoggerConfigurations.getLoggerConfiguration());
+const LOGGER = log4js.getLogger();
 
 const dynamoInstance = require("../../dbOperations/dynamoDb");
 const UserNotFoundError = require("./UserNotFoundError");

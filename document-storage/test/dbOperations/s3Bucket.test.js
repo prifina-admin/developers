@@ -1,4 +1,4 @@
-var s3Instance = require("../../src/dbOperations/s3Bucket");
+var s3Instance = require("../../dbOperations/s3Bucket");
 test("test uploading data to a s3 bucket doesn't exist", () => {
   var data = {
     Bucket: "users-unorgggganized-files",

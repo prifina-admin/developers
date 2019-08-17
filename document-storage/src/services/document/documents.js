@@ -1,8 +1,8 @@
 //configuring logger
-const LOGGER = require("log4js");
+const log4js = require("log4js");
 const LoggerConfigurations = require("../../configurations/logger/logger");
-LOGGER.configure(LoggerConfigurations.getLoggerConfiguration());
-
+log4js.configure(LoggerConfigurations.getLoggerConfiguration());
+const LOGGER = log4js.getLogger();
 const userOperations = require("../user/user");
 const s3bucketOperations = require("../../dbOperations/s3Bucket");
 
