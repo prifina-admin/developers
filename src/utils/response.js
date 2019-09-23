@@ -8,7 +8,7 @@
  * @param {object} successObject Data to be included in the response body.
  * @return {object}
  */
-exports.getSuccessResponse = function(successObject) {
+module.exports.getSuccessResponse = function(successObject) {
     return {
         statusCode: 200,
         body: successObject
@@ -20,7 +20,7 @@ exports.getSuccessResponse = function(successObject) {
  * @param {Error} error error to be included in the response body
  * @return {object}
  */
-exports.getErrorResponse = function(error) {
+module.exports.getErrorResponse = function(error) {
     if (!error.hasOwnProperty("errorCode")) {
         error["errorCode"] = "ENO001"; // General error code
     }

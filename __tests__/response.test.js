@@ -1,4 +1,4 @@
-const responseUtil = require('../src/responseUtil');
+const responseUtil = require('../src/utils/response');
 const ValidationError = require('../src/errors/ValidationError');
 const UserNotFoundError = require('../src/errors/UserNotFoundError');
 const ServiceNotFoundError = require('../src/errors/ServiceNotFoundError');

@@ -1,4 +1,4 @@
-const validate = require('./validate');
+const validate = require('../utils/validate');
 let AWS = require('aws-sdk');
 
 /**

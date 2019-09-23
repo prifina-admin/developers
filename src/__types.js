@@ -1,4 +1,4 @@
-// File to contain user defined types for the documentation
+// File to contain user defined types for the generated documentation
 
 /**
  * @typedef RequestObject

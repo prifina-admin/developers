@@ -5,6 +5,6 @@
  * @param {string} requester_id - Registered ID of the service requesting user data
  * @returns {DataObject} An object with error or data.
  */
-function data(user_id, categories) {
+function data(service_id, user_id, categories) {
 
 }
