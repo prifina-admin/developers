@@ -2,13 +2,14 @@ const validate = require('../utils/validate');
 const AWS = require('aws-sdk');
 
 /**
- * Function for 3rd parties to request access to user data
+ * Function for User to grant permissions for data to 3rd parties
  * @param {string} service_id - Registered ID of the service requesting user data
  * @param {string} user_id - Registered ID of the user whose data is being requested
- * @param {RequestObject[]} categories - An array of different categories of data required along with the reason.
+ * @param {Number} category - An integer depicting the category of data
  * @returns {?error} Either an error or nothing
 */
-module.exports.request = function(service_id, user_id, categories) {
+
+module.exports.grant = function (service_id, user_id, category) {
     // run validations and return error
     try {
         validate.registeredID(user_id);
@@ -25,13 +26,17 @@ module.exports.request = function(service_id, user_id, categories) {
     const db = new AWS.DynamoDB.DocumentClient();
     const params = {
         TableName: 'Permissions',
-        Item: {
-            "Service_ID": service_id,
-            "User_ID": user_id,
-            "Categories": {}
+        Key: {
+            "Service_ID": service_id, 
+            "User_ID": user_id
+        },
+        UpdateExpression: "set Categories[:key] = :value",
+        ExpressionAttributevalues: {
+            ":key": category,
+            ":value": true
         }
     }
-    db.put(params, (_error, _data) => {
+    db.update(params, (_error, _data) => {
         err = _error;
     });
 

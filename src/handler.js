@@ -2,6 +2,8 @@
 
 const request = require('./access/request');
 const data = require('./access/data');
+const grant = require('./access/grant');
+
 const responseUtil = require('./utils/response');
 
 module.exports.requestAccess = async (event, context, callback) => {
@@ -35,3 +37,19 @@ module.exports.accessData = async (event, context, callback) => {
   // send adequete response
   callback(responseUtil.getSuccessResponse());
 };
+
+module.exports.grantAccess = async (event, context, callback) => {
+  // get params
+  const user_id = event.user_id;
+  const service_id = event.user_id;
+  const category = event.category;
+
+  // call data function with params
+  const err = grant(service_id, user_id, category);
+  if (err) {
+    callback(responseUtil.getErrorResponse(err));
+  }
+
+  // send adequete response
+  callback(responseUtil.getSuccessResponse());
+}
