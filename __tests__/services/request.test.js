@@ -1,8 +1,5 @@
 // Tests for the request function
-
-const request = require('../../src/access/request').request;
-let AWS = require('aws-sdk');
-let AWSMock = require('aws-sdk-mock');
+const request = require('../../src/services/request').request;
 
 describe('Utility function \'request\'', () => {
     // integration tests for utility function request

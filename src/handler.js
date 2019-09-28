@@ -1,9 +1,8 @@
 'use strict';
 
-const request = require('./access/request');
-const data = require('./access/data');
-const grant = require('./access/grant');
-const AWS = require('aws-sdk');
+const request = require('./services/request');
+const data = require('./services/data');
+const grant = require('./services/grant');
 
 const responseUtil = require('./utils/response');
 

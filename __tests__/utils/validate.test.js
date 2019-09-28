@@ -1,8 +1,7 @@
-// Tests for the request function
+const validate = require('../../src/utils/validate');
 
-const validate = require('../../src/access/validate');
-
-describe('module: \'validate\'', () => {
+// Tests for the validate module
+describe("module: utils\nfunction: validate", () => {
     test("throws error when id is invalid", () => {
         const invalid_ids = [null, undefined, '', 1234];
         const id_error = new Error('Invalid service_id');

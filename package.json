@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "tests:run": "jest",
+    "tests:list": "jest --listTests",
+    "jest": "jest --coverage",
     "docs:gen": "jsdoc src/ -r"
   },
   "repository": {

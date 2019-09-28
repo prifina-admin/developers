@@ -1,9 +1,11 @@
-const responseUtil = require('../src/utils/response');
-const ValidationError = require('../src/errors/ValidationError');
-const UserNotFoundError = require('../src/errors/UserNotFoundError');
-const ServiceNotFoundError = require('../src/errors/ServiceNotFoundError');
+const responseUtil = require('../../src/utils/response');
 
-describe('Utility module responseUtil', () => {
+const ValidationError = require('../../src/errors/ValidationError');
+const UserNotFoundError = require('../../src/errors/UserNotFoundError');
+const ServiceNotFoundError = require('../../src/errors/ServiceNotFoundError');
+
+// Unit tests for the response util function
+describe('module: utils\nfunction: response', () => {
     describe('child function getSuccessResponse', () => {
         test('gives success object when a non error is passed', () => {
             const dataObj = {
