@@ -27,15 +27,20 @@ module.exports.grant = function (service_id, user_id, category) {
     const params = {
         TableName: 'Permissions',
         Key: {
-            "Service_ID": service_id, 
-            "User_ID": user_id
+            "Service_ID": {
+                S: service_id
+            }, 
+            "User_ID": {
+                S: user_id
+            }
         },
         UpdateExpression: "set Categories[:key] = :value",
         ExpressionAttributevalues: {
             ":key": category,
             ":value": true
         }
-    }
+    };
+    
     db.update(params, (_error, _data) => {
         err = _error;
     });

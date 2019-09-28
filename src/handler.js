@@ -3,9 +3,11 @@
 const request = require('./access/request');
 const data = require('./access/data');
 const grant = require('./access/grant');
+const AWS = require('aws-sdk');
 
 const responseUtil = require('./utils/response');
 
+// handler function for user service to request data access from user
 module.exports.requestAccess = async (event, context, callback) => {
   // get paramss
   const user_id = event.user_id;
@@ -22,6 +24,7 @@ module.exports.requestAccess = async (event, context, callback) => {
   callback(responseUtil.getSuccessResponse());
 };
 
+// handler function for service to access user data
 module.exports.accessData = async (event, context, callback) => {
   // get params
   const user_id = event.user_id;
@@ -38,13 +41,14 @@ module.exports.accessData = async (event, context, callback) => {
   callback(responseUtil.getSuccessResponse());
 };
 
+// handler function for user to grant a service access to their data
 module.exports.grantAccess = async (event, context, callback) => {
   // get params
   const user_id = event.user_id;
   const service_id = event.user_id;
   const category = event.category;
 
-  // call data function with params
+  // call grant function with params to grant access
   const err = grant(service_id, user_id, category);
   if (err) {
     callback(responseUtil.getErrorResponse(err));
