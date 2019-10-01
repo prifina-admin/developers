@@ -8,7 +8,7 @@ const AWS = require('aws-sdk');
  * @param {RequestObject[]} categories - An array of different categories of data required along with the reason.
  * @returns {?error} Either an error or nothing
 */
-module.exports.request = function(service_id, user_id, categories) {
+module.exports = function request(service_id, user_id, categories) {
     // run validations and return error
     try {
         validate.registeredID(user_id);
@@ -20,10 +20,48 @@ module.exports.request = function(service_id, user_id, categories) {
         return error;
     }
 
-    // register request in the database
-    let err;
     const db = new AWS.DynamoDB.DocumentClient();
-    const params = {
+    
+    // check if service is registered in DB
+    let err, data;
+    const serviceParams = {
+        TableName: 'Services', 
+        Item: {
+            "ID": service_id
+        }
+    }
+    db.get(serviceParams, (_error, _data) => {
+        err = _error;
+        data = _data;
+    });
+
+    if (err) { return err; }
+    if (Object.keys(data).length() == 0) {
+        // if no such service exists, return error
+        return new Error(`Service with ID ${service_id} not found`);
+    }
+
+    // check if user is registered in DB
+    let err, data;
+    const userParams = {
+        TableName: 'User',
+        Item: {
+            "ID": user_id
+        }
+    }
+    db.get(userParams, (_error, _data) => {
+        err = _error;
+        data = _data;
+    });
+
+    if (err) { return err; }
+    if (Object.keys(data).length() == 0) {
+        // if no such service exists, return error
+        return new Error(`User with ID ${user_id} not found`);
+    }
+
+    // register request in the database
+    const requestParams = {
         TableName: 'Permissions',
         Item: {
             "Service_ID": service_id,
@@ -31,7 +69,7 @@ module.exports.request = function(service_id, user_id, categories) {
             "Categories": {}
         }
     }
-    db.put(params, (_error, _data) => {
+    db.put(requestParams, (_error, _data) => {
         err = _error;
     });
 

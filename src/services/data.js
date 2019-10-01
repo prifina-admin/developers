@@ -8,7 +8,7 @@ const AWS = require('aws-sdk');
  * @param {number[]} categories - An array of different categories of data required.
  * @returns {?error} Either an error or data
 */
-function data(service_id, user_id, categories) {
+module.exports = function data(service_id, user_id, categories) {
     // check if service has access to user's data for each category
     let err;
     const db = new AWS.DynamoDB.DocumentClient();
@@ -38,5 +38,3 @@ function data(service_id, user_id, categories) {
     // if service has permission, return data
     
 }
-
-module.exports = data;
