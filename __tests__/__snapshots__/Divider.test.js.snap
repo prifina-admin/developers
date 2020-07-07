@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider renders correctly 1`] = `
+<hr
+  className="Divider__HRDivider-sc-1nvoonm-0 jiTMdn"
+  color="black"
+/>
+`;

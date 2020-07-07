@@ -8,13 +8,24 @@ const HRDivider = styled.hr`
   border: 0;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-color: ${(props) => props.color};
+  border-color: ${props => props.color};
   ${space} ${layout} ${color};
 `;
 
-const Divider = (props) => {
+const DivDivider = styled.div`
+  border: 0;
+  border-bottom-style: ${props => props.borderStyle || props.style || "solid"};
+  border-bottom-width: ${props => props.borderWidth || props.height || "1px"};
+  border-color: ${props => props.color};
+  ${space} ${layout};
+  ${color};
+`;
+
+const Divider = props => {
+  console.log("PROPS ", props);
+
   if (props.variation === "hr") return <HRDivider {...props} />;
-  //if (props.variation === "div") return <DivDivider {...props} />;
+  if (props.variation === "div") return <DivDivider {...props} />;
 };
 
 Divider.displayName = "Divider";
