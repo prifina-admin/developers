@@ -9,5 +9,5 @@ export const text = () => (
   </Text>
 );
 text.story = {
-  name: "Divider",
+  name: "Text",
 };

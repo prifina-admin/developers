@@ -62,8 +62,8 @@ const Text = ({ as, ...props }) => {
 Text.displayName = "Text";
 Text.defaultProps = {
   as: "div",
-  color: "currentColor",
-  fontFamily: "body",
+  //color: "currentColor",
+  //fontFamily: "body",
 };
 
 Text.propTypes = {
