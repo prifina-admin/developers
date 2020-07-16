@@ -2,14 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { space, typography, textStyle, color } from "styled-system";
+import { space, typography } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
+//import { themeGet } from "@styled-system/theme-get";
 
 const customPropsList = { bold: "fontWeight", italic: "fontStyle" };
 
 //const theme={"color":"currentColor","fontFamily":"body"};
 
-export const customProps = props => {
+const customProps = props => {
   let propsList = [];
   Object.keys(props).forEach(p => {
     if (Object.keys(customPropsList).indexOf(p) > -1) {
@@ -45,17 +46,33 @@ const TextElement = styled("div").withConfig({
   ${customProps}
 `;
 */
+const color = props => {
+  console.log("PROPS ", props);
 
+  return {
+    color: props.color ? props.color : props.theme.colors["textPrimary"],
+  };
+};
+const textStyles = props => {
+  return props.textStyle ? props.theme.textStyles[props.textStyle] : null;
+};
+const colorStyles = props => {
+  return props.colorStyle ? props.theme.colorStyles[props.colorStyle] : null;
+};
 // https://styled-system.com/guides/build-a-box
-const TextElement = styled("div")`
-  ${textStyle}
-  ${typography}
-  ${space}
-  ${color}
-  ${customProps}
-`;
+
+const TextElement = styled.div(
+  typography,
+  space,
+  color,
+  customProps,
+  textStyles,
+  colorStyles,
+);
 
 const Text = ({ as, ...props }) => {
+  console.log("PROPS ", props);
+  /* color: themeGet("palette.primary.main")(props), */
   return <TextElement as={as} {...props} />;
 };
 
