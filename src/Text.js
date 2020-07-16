@@ -86,7 +86,6 @@ Text.defaultProps = {
 Text.propTypes = {
   ...styledProps.space,
   ...styledProps.typography,
-  ...styledProps.textStyle,
   ...styledProps.color,
   bold: PropTypes.bool,
   italic: PropTypes.bool,
