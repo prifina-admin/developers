@@ -4,18 +4,21 @@ import PropTypes from "prop-types";
 
 import { space, typography } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
-//import { themeGet } from "@styled-system/theme-get";
+import { useTheme } from "./theme/ThemeProvider";
 
 const customPropsList = { bold: "fontWeight", italic: "fontStyle" };
 
-//const theme={"color":"currentColor","fontFamily":"body"};
-
 const customProps = props => {
+  //console.log("PROPS CUSTOM ", props);
   let propsList = [];
   Object.keys(props).forEach(p => {
     if (Object.keys(customPropsList).indexOf(p) > -1) {
       let cssProp = {};
-      cssProp[customPropsList[p]] = p;
+      if (p === "bold") {
+        cssProp[customPropsList[p]] = props.theme.fontWeights["bold"];
+      } else {
+        cssProp[customPropsList[p]] = p;
+      }
       propsList.push(cssProp);
     }
   });
@@ -72,6 +75,8 @@ const TextElement = styled.div(
 
 const Text = ({ as, ...props }) => {
   console.log("PROPS ", props);
+  //const {colors} = useTheme();
+  //console.log(colors);
   /* color: themeGet("palette.primary.main")(props), */
   return <TextElement as={as} {...props} />;
 };
@@ -79,8 +84,6 @@ const Text = ({ as, ...props }) => {
 Text.displayName = "Text";
 Text.defaultProps = {
   as: "div",
-  //color: "currentColor",
-  //fontFamily: "body",
 };
 
 Text.propTypes = {
