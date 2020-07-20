@@ -21,6 +21,8 @@ const Image = ({ src, alt, shape, ...props }) => {
 
     if (shape === "circle") {
         borderRadiusProps = "50%";
+    } else if (shape === "rounded") {
+        borderRadiusProps = "4%";
     } else if (shape === "square") {
         widthProps = "360px";
         heightProps = "360px";
