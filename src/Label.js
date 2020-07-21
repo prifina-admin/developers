@@ -9,6 +9,7 @@ const LabelComponent = styled("label").withConfig({
   shouldForwardProp: (prop, defaultValidatorFn) =>
       ![].includes(prop),
 })`
+    for: ${props => props.for};
     ${space};
     ${color};
     ${textStyle};

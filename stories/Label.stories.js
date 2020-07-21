@@ -12,9 +12,12 @@ export const emailAddrLabel = () => (
             fontSize={"14px"}
             lineHeight={"21px"}
             color={"#1E1D1D"}
+            for={"email"}
         >
             Your email address
         </Label>
+        <br />
+        <input type={"email"} id={"email"} name={"email"}/>
     </div>
 );
 
