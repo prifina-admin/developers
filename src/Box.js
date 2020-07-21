@@ -28,8 +28,12 @@ const systemProps = compose(
   typography,
   flexbox,
 );
+const colorStyles = props => {
+  return props.colorStyle ? props.theme.colorStyles[props.colorStyle] : null;
+};
 const BoxElement = styled("div")`
   ${systemProps}
+  ${colorStyles}
 `;
 
 // https://reactjs.org/docs/forwarding-refs.html
