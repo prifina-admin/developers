@@ -3,7 +3,7 @@ import Avatar from "../src/Avatar";
 
 export default { title: "Avatar" };
 
-export const avatar = () => <Avatar initials={"trOx"} width={50} />;
+export const avatar = () => <Avatar initials={"TR"} width={100} />;
 avatar.story = {
   name: "Avatar",
 };

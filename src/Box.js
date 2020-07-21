@@ -1,11 +1,12 @@
 import React, { forwardRef } from "react";
 
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import {
-  background,
+  /*background,*/
   border,
-  color,
+  /*color,*/
   flexbox,
   grid,
   layout,
@@ -13,22 +14,25 @@ import {
   shadow,
   space,
   typography,
+  /*colorStyles,*/
   compose,
 } from "styled-system";
 
 const systemProps = compose(
   layout,
-  color,
+  /*color,*/
   space,
-  background,
+  /*background,*/
   border,
   grid,
   position,
-  shadow,
+  /*shadow,*/
   typography,
   flexbox,
+  /*colorStyles,*/
 );
-const colorStyles = props => {
+const themeColorStyles = props => {
+  console.log("custom ", props);
   return props.colorStyle ? props.theme.colorStyles[props.colorStyle] : null;
 };
 /*
@@ -40,24 +44,26 @@ const colorStyles = props => {
 
 const BoxElement = styled("div").withConfig({
   shouldForwardProp: (prop, defaultValidatorFn) => {
+    //console.log("BOX PROP ", prop);
     let propsList = Object.keys(systemProps);
-    propsList.push("colorStyles");
+    propsList.push("colorStyle");
+
     return !propsList.includes(prop);
   },
 })`
   ${systemProps}
-  ${colorStyles}
+  ${themeColorStyles}
 `;
 
 // https://reactjs.org/docs/forwarding-refs.html
 const Box = forwardRef((props, ref) => {
   return <BoxElement {...props} ref={ref} />;
 });
-/*
-const Box = styled.div`
-  ${layout}
-`;
-*/
+
 Box.displayName = "Box";
+
+Box.propTypes = {
+  colorStyle: PropTypes.string,
+};
 
 export default Box;
