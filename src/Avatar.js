@@ -49,6 +49,6 @@ Avatar.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   initials: PropTypes.string,
-  width: PropTypes.isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 export default Avatar;

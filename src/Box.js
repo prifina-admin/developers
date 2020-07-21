@@ -31,7 +31,20 @@ const systemProps = compose(
 const colorStyles = props => {
   return props.colorStyle ? props.theme.colorStyles[props.colorStyle] : null;
 };
-const BoxElement = styled("div")`
+/*
+.withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) =>
+      !["color", "m", "bg", "size", "width", "height", "flexDirection", "mb"].includes(prop),
+})
+*/
+
+const BoxElement = styled("div").withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) => {
+    let propsList = Object.keys(systemProps);
+    propsList.push("colorStyles");
+    return !propsList.includes(prop);
+  },
+})`
   ${systemProps}
   ${colorStyles}
 `;

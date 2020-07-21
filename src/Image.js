@@ -5,10 +5,11 @@ import PropTypes from "prop-types";
 
 const shape = props => {
   let shapeCss = null;
-  if (props.shape) {
-    if (props.shape === "circle") shapeCss = { "border-radius": "50%" };
-    if (props.shape === "rounded") shapeCss = { "border-radius": "4%" };
-    if (props.shape === "square") shapeCss = { height: props.width || "auto" };
+  if (props.$shape) {
+    if (props.$shape === "circle") shapeCss = { "border-radius": "50%" };
+    if (props.$shape === "rounded")
+      shapeCss = { "border-radius": props.theme.radii["avatar"] };
+    if (props.$shape === "square") shapeCss = { height: props.width || "auto" };
   }
   return shapeCss;
 };
@@ -22,10 +23,13 @@ const ImageElement = styled.img.attrs(props => ({
   ${shape}
 `;
 
-const Image = forwardRef(({ alt, ...props }, ref) => {
-  return <ImageElement {...props} alt={alt} ref={ref} />;
+const Image = forwardRef(({ alt, shape, ...props }, ref) => {
+  return <ImageElement {...props} alt={alt} ref={ref} $shape={shape} />;
 });
 Image.displayName = "Image";
+Image.defaultProps = {
+  alt: "image",
+};
 Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,

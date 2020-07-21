@@ -25,6 +25,6 @@ const Link = forwardRef(({ href, ...props }, ref) => {
 Link.displayName = "Link";
 Link.propTypes = {
   href: PropTypes.string.isRequired,
-  target: PropTypes.isRequired,
+  target: PropTypes.string.isRequired,
 };
 export default Link;

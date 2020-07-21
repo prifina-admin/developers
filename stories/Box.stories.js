@@ -29,6 +29,7 @@ export const box2 = () => (
     borderRadius={4}
     p={2}
     ref={boxRef}
+    foo={"bar"}
   >
     Something with Ref
   </Box>
