@@ -11,3 +11,4 @@ packages/*/.env
 *.log
 yarn.lock
 yarn-error.log
+coverage/

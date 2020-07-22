@@ -1,38 +1,71 @@
-import React from "react";
-import styled from "styled-components";
+import React, { forwardRef } from "react";
+
+import styled, { css } from "styled-components";
+
+import { layout, space, typography, compose } from "styled-system";
+import { default as styledProps } from "@styled-system/prop-types";
 import PropTypes from "prop-types";
 
-import { space, color, typography, textStyle } from "styled-system";
-import { default as styledProps } from "@styled-system/prop-types";
+const systemProps = compose(layout, space, typography);
 
-const LabelComponent = styled("label").withConfig({
-  shouldForwardProp: (prop, defaultValidatorFn) =>
-      ![].includes(prop),
-})`
-    for: ${props => props.for};
-    ${space};
-    ${color};
-    ${textStyle};
-    ${typography};
+const nowrap = props => {
+  return props.nowrap
+    ? {
+        whiteSpace: "nowrap",
+      }
+    : null;
+};
+const pointer = props => {
+  return props.pointer ? { cursor: "pointer" } : null;
+};
+const hidden = props => {
+  return props.hidden ? { visibility: "hidden" } : null;
+};
+
+/*
+const VisuallyHidden = styled(Box)`
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+`;
+*/
+
+const LabelTheme = css`
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  display: ${props => props.variation};
+  width: 100%;
+  margin: 0;
+  color: "currentColor";
+  ${systemProps};
+  ${nowrap}
+  ${pointer}
+  ${hidden}
 `;
 
-const Label = ({ ...props }) => {
-    return <LabelComponent {...props} />
+const LabelElement = styled("label")`
+  ${LabelTheme}
+`;
+
+const Label = forwardRef((props, ref) => {
+  return <LabelElement {...props} ref={ref} />;
+});
+Label.propTypes = {
+  ...styledProps.space,
+  ...styledProps.layout,
+  ...styledProps.typography,
+
+  variation: PropTypes.oneOf(["block", "inline", "none"]),
+  pointer: PropTypes.bool,
 };
 
 Label.displayName = "Label";
-
-Label.defaultProps = {
-    as: "label",
-    color: "black",
-    fontSize: "1em",
-}
-
-Label.propTypes = {
-    ...styledProps.space,
-    ...styledProps.color,
-    ...styledProps.textStyle,
-    ...styledProps.typography,
-};
+Label.isLabel = true;
 
 export default Label;

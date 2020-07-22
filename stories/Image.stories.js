@@ -1,63 +1,39 @@
 import React from "react";
 import Image from "../src/Image";
 
-export default { title: "Image"};
+export default { title: "Image" };
 
-export const circleImage = () => (
-    <div>
-        <Image
-            src={"https://www.w3schools.com/css/paris.jpg"}
-            alt={"image"}
-            size={"360px"}
-            shape={"circle"}
-        />
-    </div>
-);
-
-circleImage.story = {
-    name: "Circle Image",
+export const img = () => <Image src={"https://picsum.photos/200/200"} />;
+img.story = {
+  name: "Image",
 };
 
-export const roundedImage = () => (
-    <div>
-        <Image
-            src={"https://www.w3schools.com/css/paris.jpg"}
-            alt={"image"}
-            size={"360px"}
-            shape={"rounded"}
-        />
-    </div>
+export const img2 = () => (
+  <Image src={"https://picsum.photos/200/200"} shape={"circle"} alt={"Image"} />
 );
-
-roundedImage.story = {
-    name: "Rounded Image",
+img2.story = {
+  name: "Image Circle",
 };
 
-export const squareImage = () => (
-    <div>
-        <Image
-            src={"https://www.w3schools.com/css/paris.jpg"}
-            alt={"image"}
-            shape={"square"}
-        />
-    </div>
+export const img3 = () => (
+  <Image
+    src={"https://picsum.photos/200/200"}
+    shape={"rounded"}
+    alt={"Image"}
+  />
 );
-
-squareImage.story = {
-    name: "Square Image",
+img3.story = {
+  name: "Image Rounded",
 };
 
-export const rectangleImage = () => (
-    <div>
-        <Image
-            src={"https://www.w3schools.com/css/paris.jpg"}
-            alt={"image"}
-            width={"360px"}
-            shape={"rectangle"}
-        />
-    </div>
+export const img4 = () => (
+  <Image
+    src={"https://picsum.photos/200/200"}
+    alt={"Image"}
+    shape={"square"}
+    width={300}
+  />
 );
-
-rectangleImage.story = {
-    name: "Rectangle Image",
+img4.story = {
+  name: "Image Square",
 };

@@ -1,62 +1,39 @@
-import React from "react";
+import React, { createRef } from "react";
+
 import Box from "../src/Box";
-import Divider from "../src/Divider";
 
 export default { title: "Box" };
 
-export const registerBox = () => (
-    <div>
-        <Box
-            bg={"#F6F6F6"}
-            width={"642px"}
-            height={"857px"}
-            m={"auto"}
-        >
-            <Box bg={"white"} width={"420px"} height={"46px"} m={"auto"} mb={"10px"}/>
-            <Box bg={"white"} width={"420px"} height={"46px"} m={"auto"} mb={"10px"}/>
-            <Box bg={"white"} width={"420px"} height={"46px"} m={"auto"} mb={"10px"}/>
+const boxRef = createRef();
 
-        </Box>
-
-        <Divider
-            color={"#00847A"}
-            width={"642px"}
-            height={"2px"}
-            // mt={"0px"}
-            m={"auto"}
-            ml={"auto"}
-            mr={"auto"}
-        />
-    </div>
+export const box = () => (
+  <Box
+    width={[1 / 2]}
+    height={"100px"}
+    border={"1px solid"}
+    borderRadius={4}
+    p={2}
+  >
+    Something
+  </Box>
 );
-
-registerBox.story = {
-    name: "Register Box Component",
+box.story = {
+  name: "Box",
 };
 
-export const loginBox = () => (
-    <div>
-        <Box
-            bg={"#F6F6F6"}
-            width={"500px"}
-            height={"550px"}
-            m={"auto"}
-        >
-
-        </Box>
-
-        <Divider
-            color={"#00847A"}
-            width={"500px"}
-            height={"2px"}
-            m={"auto"}
-            ml={"auto"}
-            mr={"auto"}
-        />
-    </div>
+export const box2 = () => (
+  <Box
+    width={[1 / 2]}
+    height={"100px"}
+    border={"1px solid"}
+    borderRadius={4}
+    p={2}
+    ref={boxRef}
+    foo={"bar"}
+  >
+    Something with Ref
+  </Box>
 );
-
-loginBox.story = {
-    name: "Login Box Component",
+box2.story = {
+  name: "Box with ref",
 };
-

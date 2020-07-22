@@ -1,60 +1,37 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
+import { width } from "styled-system";
 import PropTypes from "prop-types";
 
-import { space, layout } from "styled-system";
-import { default as styledProps } from "@styled-system/prop-types";
-
-const ImageComponent = styled("img").withConfig({
-    shouldForwardProp: (prop, defaultValidatorFn) =>
-        !["alt", "myBorderRadius", "width", "widthProps", "heightProps", "myWidth", "myHeight"].includes(prop),
-})`
-    border-radius: ${props => props.myBorderRadius || "0%"};
-    width: ${props => props.myWidth};
-    height: ${props => props.myHeight};
-    ${space};
-    ${layout};
+const shape = props => {
+  let shapeCss = null;
+  if (props.$shape) {
+    if (props.$shape === "circle") shapeCss = { "border-radius": "50%" };
+    if (props.$shape === "rounded")
+      shapeCss = { "border-radius": props.theme.radii["avatar"] };
+    if (props.$shape === "square") shapeCss = { height: props.width || "auto" };
+  }
+  return shapeCss;
+};
+//${props => (props.fontFamily ? props.fontFamily : "body")};
+const ImageElement = styled.img.attrs(props => ({
+  height: props.height || "auto",
+}))`
+  display: block;
+  max-width: 100%;
+  ${width}
+  ${shape}
 `;
 
-const Image = ({ src, alt, shape, ...props }) => {
-    var borderRadiusProps, widthProps, heightProps;
-
-    if (shape === "circle") {
-        borderRadiusProps = "50%";
-    } else if (shape === "rounded") {
-        borderRadiusProps = "4%";
-    } else if (shape === "square") {
-        widthProps = "360px";
-        heightProps = "360px";
-    } else{
-        borderRadiusProps = "0%";
-    }
-
-    return <ImageComponent src={src} alt={alt}
-                           myBorderRadius={borderRadiusProps}
-                           myWidth={widthProps}
-                           myHeight={heightProps}
-                           {...props} />;
-};
-
+const Image = forwardRef(({ alt, shape, ...props }, ref) => {
+  return <ImageElement {...props} alt={alt} ref={ref} $shape={shape} />;
+});
 Image.displayName = "Image";
-
 Image.defaultProps = {
-    as: "img",
-    src: "",
-    alt: "image",
-    shape: "rectangle",
-    widthProps: "100%",
-    heightProps: "100%",
+  alt: "image",
 };
-
 Image.propTypes = {
-    ...styledProps.space,
-    ...styledProps.layout,
-    src: PropTypes.string,
-    alt: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };
-
 export default Image;
-
-
