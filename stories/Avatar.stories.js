@@ -47,222 +47,6 @@ fullNameAvatar.story = {
     name: "Full Name Avatar",
 };
 
-export const avatarGallery = () => (
-    <Box>
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Andy Dandy"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Bernhard Golf"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Carsten Muller"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Donald Trump"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Eva Kunis"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Fritz John"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"George"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Ingrid"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"John"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Kira"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Laura"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Michael"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Nora"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Oscar"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Peter"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Quentin"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Richard"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Seinfeld"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Tina"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Ulf"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Valto"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Wilfred"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Xavier"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Yanne"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={"Zonk"}
-            />
-        </div>
-
-        <div>
-            <Avatar
-                src={""}
-                alt={"Avatar Alt"}
-                name={""}
-            />
-        </div>
-    </Box>
-);
-
-avatarGallery.story = {
-    name: "Avatar Gallery",
-};
-
 export const avatarLibrary = () => (
     <Box>
         <Box>
@@ -320,6 +104,7 @@ export const avatarLibrary = () => (
                 name={"I Rohn"}
             />
         </Box>
+        <br/>
 
         <Box>
             <Avatar
@@ -376,6 +161,7 @@ export const avatarLibrary = () => (
                 name={"R Iohn"}
             />
         </Box>
+        <br/>
 
         <Box>
             <Avatar
@@ -427,7 +213,9 @@ export const avatarLibrary = () => (
             />
         </Box>
 
+        <br/>
         <Divider />
+        <br/>
 
         <Box>
             <Avatar
@@ -485,6 +273,7 @@ export const avatarLibrary = () => (
             />
 
         </Box>
+        <br/>
 
         <Box>
             <Avatar
@@ -541,6 +330,7 @@ export const avatarLibrary = () => (
                 name={"R"}
             />
         </Box>
+        <br/>
 
         <Box>
             <Avatar
@@ -592,7 +382,9 @@ export const avatarLibrary = () => (
             />
         </Box>
 
+        <br/>
         <Divider />
+        <br/>
 
         <Box>
             <Avatar

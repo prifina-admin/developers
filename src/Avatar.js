@@ -5,12 +5,8 @@ import PropTypes from "prop-types";
 import { space, layout } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
 
-const AvatarComponent = styled("img").withConfig({
-
-})`
+const AvatarComponent = styled("img")`
     border-radius: 50%;
-    width: ${props => props.myWidth};
-    height: ${props => props.myHeight};
     ${space};
     ${layout};
 `;
@@ -42,14 +38,11 @@ function getLetterAvatar(name, size) {
         initials = nameArray[0].charAt(0) + nameArray[1].charAt(0);
     }
 
-    console.log("before size: " + size);
     if (window.devicePixelRatio) {
         size = (size * window.devicePixelRatio);
     }
-    console.log("After size: " + size);
 
-
-    charIndex  = (initials == '?' ? 72 : initials.charCodeAt(0)) - 64;
+    charIndex  = (initials == '?' ? 72 : initials.charCodeAt(0)) - 65;
     colorIndex = charIndex % 26;
 
     canvas  = document.createElement('canvas');
