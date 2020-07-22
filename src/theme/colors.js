@@ -59,6 +59,9 @@ const colors = {
     notification: backgroundNotification,
     light: backgroundLight,
   },
+  borders: {
+    input: componentDarkText,
+  },
 
   brandPrimary,
   brandSecondary,

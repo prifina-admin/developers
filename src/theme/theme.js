@@ -3,6 +3,7 @@ import typography from "./typography";
 import colors from "./colors";
 import createTextStyles from "./createTextStyles";
 import createColorStyles from "./createColorStyles";
+import { borderWidth } from "styled-system";
 //console.log("SIZES ", Object.keys(sizes));
 const createMediaQuery = n => `@media screen and (min-width:${n})`;
 
@@ -66,6 +67,7 @@ export const radii = {
   lg: "0.5rem",
   full: "9999px",
   avatar: "4%",
+  input: "0.25rem",
 };
 
 export const opacity = {
@@ -78,6 +80,15 @@ export const opacity = {
 };
 
 export const radius = radii["md"];
+
+// borders
+export const borderWidths = { ...sizes.borderWidths };
+export const borders = {
+  input: {
+    base: `${borderWidths["2xs"]} solid ${colors.borders.input}`,
+    borderRadius: radii["input"],
+  },
+};
 
 // boxShadows
 export const boxShadows = [
@@ -135,7 +146,8 @@ const theme = {
   colorStyles,
   radii,
   radius,
-  borderWidths: { ...sizes.borderWidths },
+  borderWidths,
+  borders,
   boxShadows,
   textShadows,
   duration,

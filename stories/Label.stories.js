@@ -4,7 +4,7 @@ import Label from "../src/Label";
 export default { title: "Label" };
 
 export const label = () => (
-  <Label pointer nowrap>
+  <Label pointer nowrap variation={"block"}>
     Something very long text next line here{" "}
   </Label>
 );

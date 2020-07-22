@@ -37,12 +37,15 @@ const VisuallyHidden = styled(Box)`
 */
 
 const LabelTheme = css`
-  font-size: 14px;
-  letter-spacing: 0.2px;
+  font-size: ${props => props.theme.textStyles[props.textStyle].fontSize};
+  letter-spacing: ${props =>
+    props.theme.textStyles[props.textStyle].letterSpacing};
   display: ${props => props.variation};
   width: 100%;
   margin: 0;
-  color: "currentColor";
+  color: ${props => props.theme.textStyles[props.textStyle].color};
+  font-weight: ${props => props.theme.textStyles[props.textStyle].fontWeight};
+  line-height: ${props => props.theme.textStyles[props.textStyle].lineHeight};
   ${systemProps};
   ${nowrap}
   ${pointer}
@@ -63,6 +66,9 @@ Label.propTypes = {
 
   variation: PropTypes.oneOf(["block", "inline", "none"]),
   pointer: PropTypes.bool,
+};
+Label.defaultProps = {
+  textStyle: "body",
 };
 
 Label.displayName = "Label";
