@@ -15,6 +15,7 @@
     "storybook": "start-storybook"
   },
   "dependencies": {
+    "@blend-ui/icons": "^1.0.5",
     "@styled-system/theme-get": "^5.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -4,9 +4,9 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import {
-  /*background,*/
+  background,
   border,
-  /*color,*/
+  color,
   flexbox,
   grid,
   layout,
@@ -14,25 +14,24 @@ import {
   shadow,
   space,
   typography,
-  /*colorStyles,*/
   compose,
 } from "styled-system";
 
 const systemProps = compose(
   layout,
-  /*color,*/
+  color,
   space,
-  /*background,*/
+  background,
   border,
   grid,
   position,
-  /*shadow,*/
+  shadow,
   typography,
   flexbox,
   /*colorStyles,*/
 );
 const themeColorStyles = props => {
-  console.log("custom ", props);
+  //console.log("custom ", props);
   return props.colorStyle ? props.theme.colorStyles[props.colorStyle] : null;
 };
 /*
