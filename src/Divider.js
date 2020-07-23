@@ -1,40 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import { space, layout, color } from "styled-system";
+import { space } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
 import PropTypes from "prop-types";
 
-const HRDivider = styled.hr`
+const DividerElement = styled("div")`
+  ${space}
   border: 0;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: ${props => props.color};
-  ${space} ${layout} ${color};
+  border-bottom-style: ${props => props.borderStyle || "solid"};
+  border-bottom-width: ${props => props.borderWidth || "1px"};
+  border-color: ${props => props.borderColor || "black"};
 `;
 
-const DivDivider = styled.div`
-  border: 0;
-  border-bottom-style: ${props => props.borderStyle || props.style || "solid"};
-  border-bottom-width: ${props => props.borderWidth || props.height || "1px"};
-  border-color: ${props => props.color};
-  ${space} ${layout};
-  ${color};
-`;
-
-const Divider = props => {
-  console.log("PROPS ", props);
-
-  if (props.variation === "hr") return <HRDivider {...props} />;
-  if (props.variation === "div") return <DivDivider {...props} />;
+const Divider = ({ as, height, color, style, ...props }) => {
+  console.log("SPACE ", space(props));
+  const opts = {
+    borderWidth: height || null,
+    borderStyle: style || null,
+    borderColor: color || null,
+    ...props,
+  };
+  return <DividerElement as={as} {...opts} />;
 };
 
 Divider.displayName = "Divider";
 
 Divider.defaultProps = {
-  color: "black",
-  ml: 0,
-  mr: 0,
-  variation: "hr",
+  as: "hr",
 };
 
 Divider.propTypes = {
@@ -42,7 +34,7 @@ Divider.propTypes = {
   ...styledProps.space,
   ...styledProps.layout,
   ...styledProps.border,
-  variation: PropTypes.oneOf(["hr", "div"]),
+  as: PropTypes.oneOf(["hr", "div"]),
 };
 
 export default Divider;

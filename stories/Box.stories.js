@@ -1,17 +1,39 @@
-import React from "react";
+import React, { createRef } from "react";
+
 import Box from "../src/Box";
-import Divider from "../src/Divider";
+
 export default { title: "Box" };
 
+const boxRef = createRef();
+
 export const box = () => (
-    <div>
-        <Box bg={"#FAFAFA"} width={"642px"} height={"857px"}/>
-        <Divider color={"#00847A"} height={"6px"} width={"642px"}/>
-    </div>
-
-
+  <Box
+    width={[1 / 2]}
+    height={"100px"}
+    border={"1px solid"}
+    borderRadius={4}
+    p={2}
+  >
+    Something
+  </Box>
 );
-
 box.story = {
-    name: "Box Component",
+  name: "Box",
+};
+
+export const box2 = () => (
+  <Box
+    width={[1 / 2]}
+    height={"100px"}
+    border={"1px solid"}
+    borderRadius={4}
+    p={2}
+    ref={boxRef}
+    foo={"bar"}
+  >
+    Something with Ref
+  </Box>
+);
+box2.story = {
+  name: "Box with ref",
 };
