@@ -9,7 +9,7 @@ const LinkElement = styled.a.attrs(props => ({
 }))`
   cursor: pointer;
   text-decoration: none;
-  color: currentColor;
+  color: ${props => props.theme.colors.textLink};
 
   &:hover {
     color: ${props => props.theme.colors.textLink};
