@@ -37,3 +37,7 @@ export const button5 = () => (
 button5.story = {
   name: "Button file",
 };
+export const button6 = () => <input type="file" />;
+button6.story = {
+  name: "Input file",
+};
