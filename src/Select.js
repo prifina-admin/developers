@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import { space, typography } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
@@ -24,6 +24,9 @@ const SelectElement = styled.select`
   ::-ms-expand {
     display: none;
   }
+  &:disabled {
+    opacity: 0.25;
+  }
 `;
 
 const StyledBox = styled(Box)`
@@ -38,21 +41,15 @@ const ClickableIcon = styled(BlendIcon).attrs(props => ({
   margin-left: -32px;
 `;
 
-const Select = styled(props => (
-  <StyledBox width={"100%"}>
-    <SelectElement {...props} />
-    <ClickableIcon iconify={ChevronDown} />
-  </StyledBox>
-))``;
+const Select = forwardRef((props, ref) => {
+  return (
+    <StyledBox width={"100%"}>
+      <SelectElement {...props} ref={ref} />
+      <ClickableIcon iconify={ChevronDown} />
+    </StyledBox>
+  );
+});
 
-/*
-Select.defaultProps = {
-  m: 0,
-  pl: 12,
-  pr: 32,
-  py: 14,
-};
-*/
 Select.propTypes = {
   ...styledProps.space,
   ...styledProps.typography,
