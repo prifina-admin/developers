@@ -1,5 +1,7 @@
 import React from "react";
-import { Radio, Box, Label } from "../src";
+import Radio from "../src/Radio";
+import Label from "../src/Label";
+
 import styled from "styled-components";
 import { action } from "@storybook/addon-actions";
 
@@ -10,7 +12,7 @@ const LabelText = styled.span`
 
 export default { title: "Radio" };
 
-const checkAction = (e) => {
+const checkAction = e => {
   console.log("CLICK ", e, e.target);
   action(`${e.target.id} was clicked`)(e.target.value, e.target.checked);
 };

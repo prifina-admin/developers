@@ -76,18 +76,8 @@ const CheckBoxWrapper = styled(Box)`
     opacity: 0.25;
   }
 `;
-/*
-  const Select = forwardRef((props, ref) => {
-    return (
-      <StyledBox width={"100%"}>
-        <SelectElement {...props} ref={ref} />
-        <ClickableIcon iconify={ChevronDown} />
-      </StyledBox>
-    );
-  });
-  */
 
-const Checkbox = props => {
+const Checkbox = forwardRef((props, ref) => {
   const { disabled } = props;
 
   // Add 4px to Icon's height and width to account for size reduction caused by adding padding to SVG element
@@ -96,7 +86,7 @@ const Checkbox = props => {
 
   return (
     <CheckBoxWrapper disabled={disabled}>
-      <StyledInput type="checkbox" {...props} role="checkbox" />
+      <StyledInput type="checkbox" {...props} role="checkbox" ref={ref} />
 
       <BlendIcon
         iconify={BoxChecked}
@@ -110,7 +100,7 @@ const Checkbox = props => {
       />
     </CheckBoxWrapper>
   );
-};
+});
 
 Checkbox.displayName = "Checkbox";
 
