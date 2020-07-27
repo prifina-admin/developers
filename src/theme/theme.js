@@ -3,6 +3,8 @@ import typography from "./typography";
 import colors from "./colors";
 import createTextStyles from "./createTextStyles";
 import createColorStyles from "./createColorStyles";
+import createComponentStyles from "./createComponentStyles";
+
 import { borderWidth } from "styled-system";
 //console.log("SIZES ", Object.keys(sizes));
 const createMediaQuery = n => `@media screen and (min-width:${n})`;
@@ -90,6 +92,13 @@ export const borders = {
   },
 };
 
+export const componentStyles = createComponentStyles({
+  fontSizes,
+  sizes,
+  borders,
+  colors,
+});
+
 // boxShadows
 export const boxShadows = [
   `0 0 2px 0 rgba(0,0,0,.08),0 1px 4px 0 rgba(0,0,0,.16)`,
@@ -144,6 +153,7 @@ const theme = {
   colors,
   textStyles,
   colorStyles,
+  componentStyles,
   radii,
   radius,
   borderWidths,

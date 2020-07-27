@@ -1,46 +1,66 @@
-import React, { forwardRef } from "react";
-
+import React, { forwardRef, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { useTheme } from "./theme/ThemeProvider";
 
-import {
-  background,
-  border,
-  color,
-  flexbox,
-  grid,
-  layout,
-  position,
-  shadow,
-  space,
-  typography,
-  compose,
-} from "styled-system";
+import Input from "./Input";
 
-const systemProps = compose(
-  layout,
-  color,
-  space,
-  background,
-  border,
-  grid,
-  position,
-  shadow,
-  typography,
-  flexbox,
-);
-const BoxElement = styled("div")`
-  ${systemProps}
+const TextareaElement = forwardRef((props, ref) => (
+  <Input as="textarea" rows="1" ref={ref} {...props} />
+));
+
+const StyledTextArea = styled(TextareaElement)`
+  resize: none;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 `;
 
-// https://reactjs.org/docs/forwarding-refs.html
-const Box = forwardRef((props, ref) => {
-  return <BoxElement {...props} ref={ref} />;
+const StyledExpandTextArea = styled(TextareaElement)`
+  resize: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+`;
+
+const TextArea = forwardRef(({ expand, onInputEvent, ...props }, ref) => {
+  //console.log("TEXTAREA  ", props, expand, onInputEvent);
+  if (expand) {
+    const { componentStyles } = useTheme();
+    const [height, setHeight] = useState(
+      componentStyles.textarea.base.lineHeight,
+    );
+    const componentRef = useRef();
+    const textareaRef = ref || componentRef;
+
+    useLayoutEffect(() => {
+      if (textareaRef.current) {
+        setHeight(textareaRef.current.scrollHeight + 2); // add border width
+      }
+    }, [textareaRef]);
+
+    const handleInput = event => {
+      if (textareaRef.current) {
+        setTimeout(() => {
+          setHeight("auto");
+          setHeight(textareaRef.current.scrollHeight + 2); // add border width
+        }, 0);
+      }
+      onInputEvent && onInputEvent(event);
+    };
+    const opts = { height: height, ...props };
+    return (
+      <StyledExpandTextArea onInput={handleInput} ref={textareaRef} {...opts} />
+    );
+  } else {
+    return <StyledTextArea ref={ref} {...props} />;
+  }
 });
-/*
-const Box = styled.div`
-  ${layout}
-`;
-*/
-Box.displayName = "Box";
 
-export default Box;
+TextArea.displayName = "Textarea";
+
+TextArea.propTypes = {
+  expand: PropTypes.bool,
+};
+
+export default TextArea;
