@@ -96,6 +96,7 @@ export const componentStyles = createComponentStyles({
   fontSizes,
   sizes,
   borders,
+  colors,
 });
 
 // boxShadows
