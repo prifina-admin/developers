@@ -2,11 +2,11 @@ import React, { forwardRef } from "react";
 
 import styled, { css } from "styled-components";
 
-import { layout, space, typography, compose } from "styled-system";
+import { layout, space, typography, color, compose } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
 import PropTypes from "prop-types";
 
-const systemProps = compose(layout, space, typography);
+const systemProps = compose(layout, space, typography, color);
 
 const nowrap = props => {
   return props.nowrap
