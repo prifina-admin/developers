@@ -23,3 +23,12 @@ export const checkbox = () => (
     </StyledLabel>
   </div>
 );
+
+export const checkbox2 = () => (
+  <div>
+    <StyledLabel htmlFor="unchecked_box">
+      <input type="checkbox" id="unchecked_box" onChange={checkAction} />
+      Unchecked by default
+    </StyledLabel>
+  </div>
+);
