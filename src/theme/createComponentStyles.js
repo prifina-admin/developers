@@ -19,6 +19,19 @@ export default (theme = {}) => {
     textarea: {
       base: baseProps,
     },
+    select: {
+      fontSize: fontSizes["sm"],
+      lineHeight: sizes[20],
+      color: colors.textAccent,
+      backgroundColor: "transparent",
+      border: borders.select.base,
+      borderRadius: borders.select.borderRadius,
+
+      paddingLeft: sizes[12],
+      paddingRight: sizes[32],
+      paddingTop: sizes[13],
+      paddingBottom: sizes[13],
+    },
     button: {
       xs: {
         fontSize: sizes.buttonSizes.xs.fontSize,
