@@ -90,6 +90,10 @@ export const borders = {
     base: `${borderWidths["2xs"]} solid ${colors.borders.input}`,
     borderRadius: radii["input"],
   },
+  select: {
+    base: `${borderWidths["2xs"]} solid ${colors.borders.input}`,
+    borderRadius: radii["input"],
+  },
 };
 
 export const componentStyles = createComponentStyles({
