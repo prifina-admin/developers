@@ -5,7 +5,7 @@ import {tableCogIcon} from "@blend-ui/icons";
 
 export default { title: "IconButton" };
 export const iconButton = () => (
-    <IconButton iconify={tableCogIcon} />
+    <IconButton iconify={tableCogIcon} buttonText={"iconButton"} />
 );
 
 iconButton.story = {
