@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 
 import { space, typography } from "styled-system";
 import { default as styledProps } from "@styled-system/prop-types";
-import { useTheme } from "./theme/ThemeProvider";
-import colors from "./theme/colors";
 
 const customPropsList = { bold: "fontWeight", italic: "fontStyle" };
 
@@ -52,12 +50,6 @@ const TextElement = styled("div").withConfig({
 */
 const color = props => {
   console.log("color PROPS ", props);
-
-  if (typeof(props.theme.color) == 'undefined') {
-    return {
-      color: props.color ? props.color : colors.textPrimary,
-    };
-  }
 
   return {
     color: props.color ? props.color : props.theme.colors["textPrimary"],
