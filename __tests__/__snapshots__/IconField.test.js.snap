@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconField renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <div
+    className="Box__BoxElement-sc-1iw4lg9-0 dnpTCS IconField__StyledBox-zvu1xy-0 dEaKrZ"
+  >
+    <svg
+      className="Icon-y3r77h-0 hfhfoT"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<path d=\\"M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z\\" fill=\\"currentColor\\"/>",
+        }
+      }
+      focusable={false}
+      height="24"
+      preserveAspectRatio="xMidYMid meet"
+      style={
+        Object {
+          "alignSelf": "center",
+          "flex": "none",
+          "marginLeft": "0.4375rem",
+          "marginRight": 0,
+          "pointerEvents": "none",
+          "position": "relative",
+        }
+      }
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+    <input
+      className="Input__InputElement-sc-1ezb9jk-0 cIdSgd"
+      placeholder="Enter value here"
+      type="text"
+      width="100%"
+    />
+  </div>
+</div>
+`;

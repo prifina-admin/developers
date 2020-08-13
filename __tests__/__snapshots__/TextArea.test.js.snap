@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expanded TextArea renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <textarea
+    className="Input__InputElement-sc-1ezb9jk-0 epsbol TextArea__StyledExpandTextArea-sc-1wkrv2f-1 iUVOKg"
+    height="1.25rem"
+    onInput={[Function]}
+    rows="1"
+    type="text"
+    width="100%"
+  />
+</div>
+`;
+
+exports[`TextArea renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <textarea
+    className="Input__InputElement-sc-1ezb9jk-0 iQtNIx TextArea__StyledTextArea-sc-1wkrv2f-0 hykFNy"
+    rows="1"
+    type="text"
+    width="100%"
+  />
+</div>
+`;

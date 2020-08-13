@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <a
+    className="Link__LinkElement-ka8deg-0 gOKVs"
+    href="#"
+    rel="noopener"
+    target="_blank"
+  >
+    Something
+  </a>
+</div>
+`;

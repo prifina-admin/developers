@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avater renders image correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <img
+    alt="photo"
+    className="Image__ImageElement-sc-1qpr0nl-0 eYGcjW"
+    height="auto"
+    src="https://i.pravatar.cc/100"
+    width={100}
+  />
+</div>
+`;
+
+exports[`Avater renders initials correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <div
+    className="Box__BoxElement-sc-1iw4lg9-0 dRQcpO Avatar__InitialsElement-unjslo-0 cLdDIf"
+  >
+    <span
+      className="Text__TextElement-sc-102lho-0 cOhPIL"
+    >
+      TR
+    </span>
+  </div>
+</div>
+`;
