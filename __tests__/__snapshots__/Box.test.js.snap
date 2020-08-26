@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box renders correctly 1`] = `
+<div
+  className="Box__BoxElement-sc-1iw4lg9-0 jsloqb"
+>
+  Something
+</div>
+`;
+
+exports[`Box renders sth with Ref correctly 1`] = `
+<div
+  className="Box__BoxElement-sc-1iw4lg9-0 jsloqb"
+  foo="bar"
+>
+  Something with Ref
+</div>
+`;
