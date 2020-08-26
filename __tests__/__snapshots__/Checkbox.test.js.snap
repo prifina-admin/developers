@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <label
+    className="Label__LabelElement-u5wfo1-0 cOOeVN Checkboxtest__StyledLabel-vd4n10-0 cctMno"
+    htmlFor="unchecked_box"
+  >
+    <div
+      className="Box__BoxElement-sc-1iw4lg9-0 dnpTCS Checkbox__CheckBoxWrapper-u1j579-1 zSkhQ"
+    >
+      <input
+        className="Checkbox__StyledInput-u1j579-0 cibfPi"
+        id="unchecked_box"
+        onChange={[Function]}
+        role="checkbox"
+        type="checkbox"
+      />
+      <svg
+        className="Icon-y3r77h-0 hfhfoT"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<path d=\\"M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 2v14H5V5h14m-9 12l-4-4l1.41-1.42L10 14.17l6.59-6.59L18 9\\" fill=\\"currentColor\\"/>",
+          }
+        }
+        data-name="checked"
+        focusable={false}
+        height="1.5rem"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "transform": "rotate(360deg)",
+            "verticalAlign": "-0.125em",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1.5rem"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+      <svg
+        className="Icon-y3r77h-0 hfhfoT"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<path d=\\"M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 2v14H5V5h14z\\" fill=\\"currentColor\\"/>",
+          }
+        }
+        data-name="empty"
+        focusable={false}
+        height="1.5rem"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "transform": "rotate(360deg)",
+            "verticalAlign": "-0.125em",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1.5rem"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+    Unchecked by default
+  </label>
+</div>
+`;

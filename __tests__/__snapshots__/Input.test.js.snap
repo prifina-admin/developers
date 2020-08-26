@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Disabled renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <input
+    disabled={true}
+    type="text"
+  />
+</div>
+`;
+
+exports[`Icon Input renders correctly 1`] = `
+<svg
+  className="Icon-y3r77h-0 hfhfoT"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<path d=\\"M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z\\" fill=\\"currentColor\\"/>",
+    }
+  }
+  focusable={false}
+  height="24"
+  preserveAspectRatio="xMidYMid meet"
+  style={
+    Object {
+      "transform": "rotate(360deg)",
+      "verticalAlign": "-0.125em",
+    }
+  }
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+/>
+`;
+
+exports[`Input Styled no border renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <input
+    className="Input__InputElement-sc-1ezb9jk-0 MIWyW"
+    placeholder="Enter value here"
+    type="text"
+    width="100%"
+  />
+</div>
+`;
+
+exports[`Input renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <input
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input with placeholder renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <input
+    className="Input__InputElement-sc-1ezb9jk-0 kBPydZ"
+    placeholder="Enter value here"
+    type="text"
+    width="100%"
+  />
+</div>
+`;

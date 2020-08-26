@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly 1`] = `
+<div
+  className="ThemeProvider__Base-sc-1rk52n4-0 emGfPA"
+>
+  <label
+    className="Label__LabelElement-u5wfo1-0 grFNee"
+    fontSize="14px"
+    onClick={[Function]}
+  >
+    <div
+      checked={true}
+      className="Radio__RadioWrap-sc-1tv8lnt-0 dGosSt"
+    >
+      <input
+        checked={true}
+        className="Radio__RadioInput-sc-1tv8lnt-1 jUgNmh"
+        type="radio"
+        value="TABLE"
+      />
+      <svg
+        className="Icon-y3r77h-0 hfhfoT"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<path d=\\"M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 5a5 5 0 0 0-5 5a5 5 0 0 0 5 5a5 5 0 0 0 5-5a5 5 0 0 0-5-5z\\" fill=\\"currentColor\\"/>",
+          }
+        }
+        focusable={false}
+        height="1.5rem"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "transform": "rotate(360deg)",
+            "verticalAlign": "-0.125em",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1.5rem"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+    <span
+      className="Radiotest__LabelText-sc-117ifwp-0 kdrKBa"
+    >
+      selected
+    </span>
+  </label>
+  <label
+    className="Label__LabelElement-u5wfo1-0 grFNee"
+    fontSize="14px"
+    onClick={[Function]}
+  >
+    <div
+      className="Radio__RadioWrap-sc-1tv8lnt-0 dGosSt"
+    >
+      <input
+        className="Radio__RadioInput-sc-1tv8lnt-1 jUgNmh"
+        type="radio"
+        value="OBJECT"
+      />
+      <svg
+        className="Icon-y3r77h-0 hfhfoT"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<path d=\\"M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z\\" fill=\\"currentColor\\"/>",
+          }
+        }
+        focusable={false}
+        height="1.5rem"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "transform": "rotate(360deg)",
+            "verticalAlign": "-0.125em",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1.5rem"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+    <span
+      className="Radiotest__LabelText-sc-117ifwp-0 kdrKBa"
+    >
+      not selected
+    </span>
+  </label>
+  <label
+    className="Label__LabelElement-u5wfo1-0 grFNee"
+    fontSize="14px"
+  >
+    <div
+      className="Radio__RadioWrap-sc-1tv8lnt-0 dGosSt"
+      disabled={true}
+    >
+      <input
+        className="Radio__RadioInput-sc-1tv8lnt-1 jUgNmh"
+        disabled={true}
+        type="radio"
+      />
+      <svg
+        className="Icon-y3r77h-0 hfhfoT"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<path d=\\"M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z\\" fill=\\"currentColor\\"/>",
+          }
+        }
+        focusable={false}
+        height="1.5rem"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "transform": "rotate(360deg)",
+            "verticalAlign": "-0.125em",
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1.5rem"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+    <span
+      className="Radiotest__LabelText-sc-117ifwp-0 kdrKBa"
+    >
+      disabled
+    </span>
+  </label>
+</div>
+`;
