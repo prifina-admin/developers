@@ -1,7 +1,7 @@
 import React from "react";
 import IconField from "../src/IconField";
 import Input from "../src/Input";
-import { accountIcon, eyeIcon, BlendIcon } from "@blend-ui/icons";
+import { accountIcon, eyeIcon, BlendIcon, lockIcon } from "@blend-ui/icons";
 
 export default { title: "Icon Field" };
 
@@ -34,4 +34,15 @@ export const iconfieldinput3 = () => (
 );
 iconfieldinput3.story = {
   name: "Icon Both Field Input ",
+};
+
+export const iconfieldinputPasswd = () => (
+    <IconField>
+        <BlendIcon iconify={lockIcon} />
+        <Input placeholder={"Enter value here"} type={"password"}/>
+        <BlendIcon iconify={eyeIcon} />
+    </IconField>
+);
+iconfieldinputPasswd.story = {
+    name: "Icon Both Field Input -PWD",
 };
