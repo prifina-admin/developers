@@ -11,3 +11,12 @@ export const label = () => (
 label.story = {
   name: "Label",
 };
+
+export const colorLabel = () => (
+    <Label pointer nowrap variation={"block"} color={"textAccent"}>
+        Something very long text next line here{" "}
+    </Label>
+);
+colorLabel.story = {
+    name: "Label with color",
+};
